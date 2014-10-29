@@ -9,69 +9,84 @@
     tools:context=".ModernArtActivity">
 
     <TextView
-        android:layout_width="100dp"
-        android:layout_height="150dp"
+        android:layout_width="192dp"
+        android:layout_height="180dp"
         android:text=""
-        android:id="@+id/topLeftBox"
+        android:id="@+id/blackBox"
         android:layout_alignParentLeft="true"
         android:focusableInTouchMode="true"
-        android:background="#ffffca2b" />
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:text=""
-        android:id="@+id/topMiddleBox"
-        android:layout_toRightOf="@+id/topLeftBox"
-        android:focusableInTouchMode="true"
-        android:background="#ff5871ff" />
+        android:background="#ff1e1e1e" />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:text=""
-        android:id="@+id/topRightBox"
-        android:layout_toRightOf="@+id/topMiddleBox"
+        android:id="@+id/cyanBox"
+        android:layout_toRightOf="@+id/blackBox"
         android:focusableInTouchMode="true"
-        android:background="#ffff3a1e" />
+        android:background="#ff00b2b2" />
 
+    <TextView
+        android:layout_width="170dp"
+        android:layout_height="140dp"
+        android:text=""
+        android:id="@+id/blueBox"
+        android:layout_below="@+id/blackBox"
+        android:focusableInTouchMode="true"
+        android:background="#ff0000ff" />
+    <TextView
+        android:layout_width="110dp"
+        android:layout_height="200dp"
+        android:text=""
+        android:id="@+id/blackBox2"
+        android:layout_below="@+id/blackBox"
+        android:layout_toRightOf="@+id/blueBox"
+        android:focusableInTouchMode="true"
+        android:background="#ff1e1e1e" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:text=""
-        android:id="@+id/secondLeftBox"
-        android:layout_below="@+id/topLeftBox"
+        android:id="@+id/greenBox"
+        android:layout_below="@+id/blackBox"
+        android:layout_toRightOf="@+id/blackBox2"
         android:focusableInTouchMode="true"
-        android:background="#ff59fff6" />
+        android:background="#ff008000" />
     <TextView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="70dp"
+        android:layout_height="90dp"
         android:text=""
-        android:id="@+id/secondEmbeddedWhiteBox"
-        android:layout_alignBottom="@+id/secondLeftBox"
+        android:id="@+id/embeddedWhiteBox"
+        android:layout_toRightOf="@+id/blueBox"
+        android:layout_alignTop="@+id/blackBox2"
         android:focusableInTouchMode="true"
         android:background="#ffffffff" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:text=""
-        android:id="@+id/thirdLeftBox"
-        android:layout_below="@+id/secondLeftBox"
+        android:id="@+id/brownBox"
+        android:layout_below="@+id/blueBox"
         android:focusableInTouchMode="true"
-        android:background="#ffff1d83" />
+        android:background="#ff49311c" />
     <TextView
-        android:layout_width="150dp"
-        android:layout_height="130dp"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
         android:text=""
-        android:id="@+id/thirdRightBox"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/secondLeftBox"
+        android:id="@+id/brownBox2"
+        android:layout_alignBottom="@+id/brownBox"
+        android:layout_toRightOf="@+id/brownBox"
         android:focusableInTouchMode="true"
-        android:background="#ffffcf72" />
+        android:background="#ff49311c" />
 
     <SeekBar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/seeker"
-        android:layout_below="@+id/thirdLeftBox" />
+        android:layout_height="match_parent"
+        android:id="@+id/colorControl"
+        android:background="#ff000000"
+        style="@android:style/Widget.DeviceDefault.SeekBar"
+        android:layout_below="@+id/brownBox"
+        android:max="120"
+        android:progress="120" />
 
 </RelativeLayout>
