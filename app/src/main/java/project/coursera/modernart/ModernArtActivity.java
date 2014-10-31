@@ -1,6 +1,7 @@
 package project.coursera.modernart;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -20,10 +21,20 @@ public class ModernArtActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.modern_art);
 
-        final TextView test = (TextView) findViewById(R.id.blackBox);
-        final ColorDrawable testCD = (ColorDrawable) test.getBackground();
-        final TextView test2 = (TextView) findViewById(R.id.cyanBox);
-        final ColorDrawable testCD2 = (ColorDrawable) test2.getBackground();
+        final TextView redBox = (TextView) findViewById(R.id.redBox);
+        final TextView cyanBox = (TextView) findViewById(R.id.cyanBox);
+        final TextView blueBox = (TextView) findViewById(R.id.blueBox);
+        final TextView yellowBox = (TextView) findViewById(R.id.yellowBox);
+        final TextView greenBox = (TextView) findViewById(R.id.greenBox);
+        final TextView brownBox = (TextView) findViewById(R.id.brownBox);
+        final TextView brownBox2 = (TextView) findViewById(R.id.brownBox2);
+
+        final int originalRed = ((ColorDrawable) redBox.getBackground()).getColor();
+        final int originalCyan = ((ColorDrawable) cyanBox.getBackground()).getColor();
+        final int originalBlue = ((ColorDrawable) blueBox.getBackground()).getColor();
+        final int originalYellow = ((ColorDrawable) yellowBox.getBackground()).getColor();
+        final int originalGreen = ((ColorDrawable) greenBox.getBackground()).getColor();
+        final int originalBrown = ((ColorDrawable) brownBox.getBackground()).getColor();
 
         colorControl = (SeekBar) findViewById(R.id.colorControl);
         colorControl.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
@@ -31,17 +42,14 @@ public class ModernArtActivity extends Activity {
 
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progressChanged = progress;
-                Log.d("DEBUG", "Progress is " + progressChanged);
-                test.setBackgroundColor(
-                        Color.argb(255 - progressChanged,
-                                Color.red(testCD.getColor()),
-                                Color.green(testCD.getColor()),
-                                Color.blue(testCD.getColor())));
-                test2.setBackgroundColor(
-                        Color.argb(255 - progressChanged,
-                                Color.red(testCD2.getColor()),
-                                Color.green(testCD2.getColor()),
-                                Color.blue(testCD2.getColor())));
+                // Log.d("DEBUG", "Progress is " + progressChanged);
+                setProgressBasedBackgroundColor(redBox, originalRed);
+                setProgressBasedBackgroundColor(cyanBox, originalCyan);
+                setProgressBasedBackgroundColor(blueBox, originalBlue);
+                setProgressBasedBackgroundColor(yellowBox, originalYellow);
+                setProgressBasedBackgroundColor(greenBox, originalGreen);
+                setProgressBasedBackgroundColor(brownBox, originalBrown);
+                setProgressBasedBackgroundColor(brownBox2, originalBrown);
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -50,6 +58,14 @@ public class ModernArtActivity extends Activity {
 
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+
+            private void setProgressBasedBackgroundColor(TextView box, int OriginalBoxColor) {
+                float[] hsvColor = new float[3];
+                Color.colorToHSV(OriginalBoxColor, hsvColor);
+                hsvColor[0] = hsvColor[0] + progressChanged;
+                hsvColor[0] = hsvColor[0] % 360;
+                box.setBackgroundColor(Color.HSVToColor(Color.alpha(OriginalBoxColor), hsvColor));
             }
         });
 
@@ -71,7 +87,9 @@ public class ModernArtActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_more_information) {
+            DialogFragment moreInfoFragment = new MoreInfoDialogFragment();
+            moreInfoFragment.show(getFragmentManager(), "moreInfo");
             return true;
         }
 

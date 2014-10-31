@@ -3,6 +3,10 @@
 
     <string name="app_name">Modern Art UI</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_more_information">More Information</string>
+
+    <string name="dialog_message">Test</string>
+    <string name="not_now">Not Now</string>
+    <string name="moma_website">Moma Website</string>
 
 </resources>

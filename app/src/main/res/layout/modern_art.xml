@@ -12,16 +12,16 @@
         android:layout_width="192dp"
         android:layout_height="180dp"
         android:text=""
-        android:id="@+id/blackBox"
+        android:id="@+id/redBox"
         android:layout_alignParentLeft="true"
         android:focusableInTouchMode="true"
-        android:background="#ff1e1e1e" />
+        android:background="#ffff0000" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:text=""
         android:id="@+id/cyanBox"
-        android:layout_toRightOf="@+id/blackBox"
+        android:layout_toRightOf="@+id/redBox"
         android:focusableInTouchMode="true"
         android:background="#ff00b2b2" />
 
@@ -30,25 +30,25 @@
         android:layout_height="140dp"
         android:text=""
         android:id="@+id/blueBox"
-        android:layout_below="@+id/blackBox"
+        android:layout_below="@+id/redBox"
         android:focusableInTouchMode="true"
         android:background="#ff0000ff" />
     <TextView
         android:layout_width="110dp"
         android:layout_height="200dp"
         android:text=""
-        android:id="@+id/blackBox2"
-        android:layout_below="@+id/blackBox"
+        android:id="@+id/yellowBox"
+        android:layout_below="@+id/redBox"
         android:layout_toRightOf="@+id/blueBox"
         android:focusableInTouchMode="true"
-        android:background="#ff1e1e1e" />
+        android:background="#ffffff00" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:text=""
         android:id="@+id/greenBox"
-        android:layout_below="@+id/blackBox"
-        android:layout_toRightOf="@+id/blackBox2"
+        android:layout_below="@+id/redBox"
+        android:layout_toRightOf="@+id/yellowBox"
         android:focusableInTouchMode="true"
         android:background="#ff008000" />
     <TextView
@@ -57,13 +57,13 @@
         android:text=""
         android:id="@+id/embeddedWhiteBox"
         android:layout_toRightOf="@+id/blueBox"
-        android:layout_alignTop="@+id/blackBox2"
+        android:layout_alignTop="@+id/yellowBox"
         android:focusableInTouchMode="true"
         android:background="#ffffffff" />
 
     <TextView
         android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_height="165dp"
         android:text=""
         android:id="@+id/brownBox"
         android:layout_below="@+id/blueBox"
@@ -71,7 +71,7 @@
         android:background="#ff49311c" />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="105dp"
         android:text=""
         android:id="@+id/brownBox2"
         android:layout_alignBottom="@+id/brownBox"
@@ -86,7 +86,7 @@
         android:background="#ff000000"
         style="@android:style/Widget.DeviceDefault.SeekBar"
         android:layout_below="@+id/brownBox"
-        android:max="120"
-        android:progress="120" />
+        android:max="255"
+        android:progress="0" />
 
 </RelativeLayout>
