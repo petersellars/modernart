@@ -4,7 +4,10 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.widget.Button;
 
 /**
  * Created by psellars on 31/10/14.
@@ -16,7 +19,13 @@ public class MoreInfoDialogFragment extends DialogFragment {
 
         // Build the dialog and set up the button click handlers
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage(R.string.dialog_message);
+
+        // Get the layout inflator
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+
+        // Inflate and set the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+        builder.setView(inflater.inflate(R.layout.moma_dialog, null));
 
         // Add Dialog Buttons
         builder.setPositiveButton(R.string.moma_website, new DialogInterface.OnClickListener() {
@@ -29,11 +38,23 @@ public class MoreInfoDialogFragment extends DialogFragment {
         builder.setNegativeButton(R.string.not_now, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                // User clicked on 'Cancel' button
+                dialogInterface.cancel();
             }
         });
 
         // Create the Alert Dialog
         return builder.create();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Button pButton =  ((AlertDialog) getDialog()).getButton(DialogInterface.BUTTON_POSITIVE);
+        Button nButton =  ((AlertDialog) getDialog()).getButton(DialogInterface.BUTTON_NEGATIVE);
+
+        pButton.setBackgroundColor(getResources().getColor(R.color.holo_blue_dark));
+        pButton.setTextColor(Color.WHITE);
+        nButton.setBackgroundColor(getResources().getColor(R.color.holo_blue_dark));
+        nButton.setTextColor(Color.WHITE)
     }
 }

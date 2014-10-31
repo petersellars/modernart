@@ -5,8 +5,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_more_information">More Information</string>
 
-    <string name="dialog_message">Test</string>
+    <string name="dialog_message">Inspired by the works of artists such as\n Ben Nicholson and Piet Mondrian</string>
+    <string name="learn_more">Click below to learn more!</string>
     <string name="not_now">Not Now</string>
-    <string name="moma_website">Moma Website</string>
+    <string name="moma_website">Visit MOMA</string>
 
 </resources>
