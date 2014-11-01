@@ -5,12 +5,11 @@ import android.app.DialogFragment;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.TextView;
 
 public class ModernArtActivity extends Activity {
 
@@ -21,13 +20,14 @@ public class ModernArtActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.modern_art);
 
-        final TextView redBox = (TextView) findViewById(R.id.redBox);
-        final TextView cyanBox = (TextView) findViewById(R.id.cyanBox);
-        final TextView blueBox = (TextView) findViewById(R.id.blueBox);
-        final TextView yellowBox = (TextView) findViewById(R.id.yellowBox);
-        final TextView greenBox = (TextView) findViewById(R.id.greenBox);
-        final TextView brownBox = (TextView) findViewById(R.id.brownBox);
-        final TextView brownBox2 = (TextView) findViewById(R.id.brownBox2);
+        final LinearLayout redBox = (LinearLayout) findViewById(R.id.redBox);
+        final LinearLayout cyanBox = (LinearLayout) findViewById(R.id.cyanBox);
+        final LinearLayout blueBox = (LinearLayout) findViewById(R.id.blueBox);
+        final LinearLayout yellowBox = (LinearLayout) findViewById(R.id.yellowBox);
+        final LinearLayout yellowBoxEmbedded = (LinearLayout) findViewById(R.id.yellowBoxEmbedded);
+        final LinearLayout greenBox = (LinearLayout) findViewById(R.id.greenBox);
+        final LinearLayout brownBox = (LinearLayout) findViewById(R.id.brownBox);
+        final LinearLayout brownBoxBottom = (LinearLayout) findViewById(R.id.brownBoxBottom);
 
         final int originalRed = ((ColorDrawable) redBox.getBackground()).getColor();
         final int originalCyan = ((ColorDrawable) cyanBox.getBackground()).getColor();
@@ -47,9 +47,10 @@ public class ModernArtActivity extends Activity {
                 setProgressBasedBackgroundColor(cyanBox, originalCyan);
                 setProgressBasedBackgroundColor(blueBox, originalBlue);
                 setProgressBasedBackgroundColor(yellowBox, originalYellow);
+                setProgressBasedBackgroundColor(yellowBoxEmbedded, originalYellow);
                 setProgressBasedBackgroundColor(greenBox, originalGreen);
                 setProgressBasedBackgroundColor(brownBox, originalBrown);
-                setProgressBasedBackgroundColor(brownBox2, originalBrown);
+                setProgressBasedBackgroundColor(brownBoxBottom, originalBrown);
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -60,7 +61,7 @@ public class ModernArtActivity extends Activity {
 
             }
 
-            private void setProgressBasedBackgroundColor(TextView box, int OriginalBoxColor) {
+            private void setProgressBasedBackgroundColor(LinearLayout box, int OriginalBoxColor) {
                 float[] hsvColor = new float[3];
                 Color.colorToHSV(OriginalBoxColor, hsvColor);
                 hsvColor[0] = hsvColor[0] + progressChanged;

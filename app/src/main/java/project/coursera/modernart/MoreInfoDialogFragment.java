@@ -4,7 +4,9 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.Button;
@@ -31,7 +33,9 @@ public class MoreInfoDialogFragment extends DialogFragment {
         builder.setPositiveButton(R.string.moma_website, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                 // User clicked on 'Ok' button
+            Intent intent =
+                    new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://www.moma.org"));
+            startActivity(intent);
             }
         });
 
@@ -55,6 +59,6 @@ public class MoreInfoDialogFragment extends DialogFragment {
         pButton.setBackgroundColor(getResources().getColor(R.color.holo_blue_dark));
         pButton.setTextColor(Color.WHITE);
         nButton.setBackgroundColor(getResources().getColor(R.color.holo_blue_dark));
-        nButton.setTextColor(Color.WHITE)
+        nButton.setTextColor(Color.WHITE);
     }
 }
